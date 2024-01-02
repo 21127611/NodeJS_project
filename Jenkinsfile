@@ -17,12 +17,12 @@ pipeline {
         }
         stage('Deploy Nodejs') {
             steps {
-                sh 'docker start node_server || docker run -d --name node_server -p 4000:8081 hoanganhcun123/nodejs_docker'
+                sh 'docker start node_server || docker run -d --name node_server -p 8081:8081 hoanganhcun123/nodejs_docker'
             }
         }
         stage('Test') {
             steps{
-                sh 'docker container run -p 4000:8081  hoanganhcun123/nodejs_docker'
+                sh 'docker exec --tty container curl https://localhost:8081/'
             }
         }
     }
