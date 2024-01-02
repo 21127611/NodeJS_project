@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Deploy Nodejs') {
             steps {
-                sh 'docker container run -p 4000:8081 hoanganhcun123/nodejs_docker'
+                sh 'docker container run -p 8000:8081 hoanganhcun123/nodejs_docker'
             }
         }
     }
