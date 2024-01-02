@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Test') {
             steps{
-                sh 'docker exec --tty node-server curl https://localhost:8081'
+                sh 'docker container run -p 4000:8081  hoanganhcun123/nodejs_docker'
             }
         }
     }
