@@ -9,10 +9,9 @@ pipeline {
         stage('Push to Hub') {
             steps {
                 script {
-                    withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')]) 
-                    sh 'docker login -u hoanganhcun123 -p ${dockerhubpwd}'
+                    withDockerRegistry(credentialsId: 'docker', url: 'https://index.docker.io/v1/') 
+                    sh 'docker push hoanganhcun123/devops_project:latest'
                 }
-                sh 'docker push hoanganhcun123/devops_project:latest'
             }
         }
         stage('Deploy Nodejs') {
