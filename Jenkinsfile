@@ -10,7 +10,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker', url: 'https://index.docker.io/v1/') {
-                        sh 'docker push hoanganhcun123/devops_project:latest'
+                        sh 'docker push hoanganhcun123/devops_project'
                     }
                 }
             }
