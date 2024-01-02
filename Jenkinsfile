@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build Docker Nodejs Image') {
             steps {
-                sh "docker build -t 21127611/nodejs_docker ."
+                sh "docker build -t hoanganhcun123/nodejs_docker ."
             }
         }
         stage('Push to Hub') {
