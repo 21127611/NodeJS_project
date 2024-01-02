@@ -12,7 +12,7 @@ pipeline {
                     withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')]) 
                     sh 'docker login -u hoanganhcun123 -p ${dockerhubpwd}'
                 }
-                sh 'docker push hoanganhcun123/devops_project'
+                sh 'docker push hoanganhcun123/devops_project:latest'
             }
         }
         stage('Deploy Nodejs') {
