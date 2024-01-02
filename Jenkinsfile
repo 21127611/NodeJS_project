@@ -3,21 +3,21 @@ pipeline {
     stages {
         stage('Build Docker Nodejs Image') {
             steps {
-                sh "docker build -t 21127611/node_docker ."
+                sh "docker build -t 21127611/nodejs_docker ."
             }
         }
         stage('Push to Hub') {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker', url: 'https://index.docker.io/v1/') {
-                        sh 'docker push hoanganhcun123/devops_project'
+                        sh 'docker push hoanganhcun123/nodejs_docker:latest'
                     }
                 }
             }
         }
         stage('Deploy Nodejs') {
             steps {
-                sh 'docker start node_server || docker run -d --name node_server -p 4000:8081 21127611/node_docker'
+                sh 'docker start node_server || docker run -d --name node_server -p 4000:8081 21127611/nodejs_docker'
             }
         }
         stage('Test') {
