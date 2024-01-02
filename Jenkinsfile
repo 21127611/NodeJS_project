@@ -21,7 +21,9 @@ pipeline {
             }
         }
         stage('Deploy Nodejs') {
-            sh 'docker start node_server || docker run -d --name node_server -p 4000:8081 21127611/node_docker'
+            steps {
+                sh 'docker start node_server || docker run -d --name node_server -p 4000:8081 21127611/node_docker'
+            }
         }
         stage('Test') {
             steps{
