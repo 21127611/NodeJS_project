@@ -6,11 +6,11 @@ var app = express()
 
 //Define request response in root URL (/)  
 app.get('/', function (req, res) {  
- res.send('Hello World!')  
+ res.send('Hello World!')  //Send the message "Hello World"
 })
 
 app.post('/', function(req, res) {
-  console.log(res)
+  console.log(res) //Print out the content of the message sent by the respond
 })
 
 //Launch listening server on port 8081  
