@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh "docker exec --tty node_server curl http//localhost:8081/"
+                sh "docker exec --tty node_server curl http://localhost:8081/"
             }
         }
     }
