@@ -1,11 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage('Clone') {
-            steps {
-                git credentialsId:'Git', url: 'https://github.com/21127611/NodeJS_project'
-            }
-        }
         stage('Build Docker Nodejs Image') {
             steps {
                 sh "docker build -t 21127611/node_docker"
